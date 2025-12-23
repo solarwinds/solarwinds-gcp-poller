@@ -2,7 +2,7 @@
 
 This repository deploys a **Cloud Logging → Pub/Sub → Cloud Functions Gen2** pipeline on Google Cloud using Terraform.
 
-It captures selected **GCP  Logs** (for example, Compute Engine VM lifecycle events) and forwards them to an external **OTLP-compatible endpoint** using a Go-based Cloud Function.
+It captures selected **GCP  Logs** (for example, Compute Engine VM lifecycle events) and forwards them to Solarwinds **OTLP-compatible endpoint** using a Go-based Cloud Function.
 
 ---
 
