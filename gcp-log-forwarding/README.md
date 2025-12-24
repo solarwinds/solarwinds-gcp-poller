@@ -25,30 +25,20 @@ It captures selected **GCP  Logs** (for example, Compute Engine VM lifecycle eve
 
 ---
 
-## Repository structure
-
-```
-.
-├── main.tf
-├── variables.tf
-├── outputs.tf
-├── terraform.tfvars
-├── function_src/        # Go function source code
-│   └── main.go
-└── README.md
-```
-
----
-
 ## GCP authentication (local development)
 
 Terraform uses **Application Default Credentials (ADC)**.
 
-### Step 1: Install Google Cloud SDK
+### Step 1: Git clone the Solarwinds gcp-poller public repo, and traverse to the gcp-log-forwarding
+
+https://github.com/solarwinds/solarwinds-gcp-poller
+
+
+### Step 2: Install Google Cloud SDK
 
 https://cloud.google.com/sdk/docs/install
 
-### Step 2: Authenticate
+### Step 3: Authenticate
 
 ```bash
 gcloud auth application-default login
@@ -56,7 +46,7 @@ gcloud auth application-default login
 
 This opens a browser and stores credentials locally.
 
-### Step 3: Set the active project
+### Step 4: Set the active project
 
 ```bash
 gcloud config set project YOUR_PROJECT_ID
@@ -75,12 +65,12 @@ Edit `terraform.tfvars`:
 project_id = "my-gcp-project"
 region     = "us-central1"
 
-topic_name = "vm-events"
-sink_name  = "vm-events-sink"
+topic_name = "solarwinds-gcp-events"
+sink_name  = "solarwinds-gcp-events-sink"
 
 function_name   = "ForwardLogs"
-otlp_endpoint   = "example.collector.com:443"
-api_token_value = "REDACTED"
+otlp_endpoint   = "otel.collector.na-01.solarwinds.com:443"
+api_token_value = "SOLARWINDS_OTEL_INGESTION_TOKEN"
 ```
 
 

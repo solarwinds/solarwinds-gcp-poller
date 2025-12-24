@@ -1,11 +1,11 @@
 # terraform.tfvars
 
-project_id      = "vkktestproject"
+project_id      = "solarwindsgcpproject"
 region          = "us-central1"
 
 # Pub/Sub + Sink
-topic_name      = "vm-kross-events"
-sink_name       = "vm-kross-events-sink"
+topic_name      = "solarwinds-gcp-events"
+sink_name       = "solarwinds-gcp-events-sink"
 
 # Log filter
 log_filter = <<-EOT
@@ -22,7 +22,7 @@ EOT
 # Function + OTLP
 function_name   = "ForwardLogs"
 otlp_endpoint   = "otel.collector.na-01.dev-ssp.solarwinds.com:443"
-api_token_value = "REDACTED"
+api_token_value = "SOLARWINDS_OTEL_INGESTION_TOKEN"
 
 # Optional tuning
 log_level         = "INFO"
